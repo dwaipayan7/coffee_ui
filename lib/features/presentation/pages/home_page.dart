@@ -150,53 +150,55 @@ class _HomePageState extends State<HomePage> {
           height: 10,
         ),
         categorySelection(),
-
-        SizedBox(height: 15,),
+        SizedBox(
+          height: 15,
+        ),
         GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-            itemCount: listOfCoffee.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index){
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemCount: listOfCoffee.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            final coffee = listOfCoffee[index];
 
-              final coffee = listOfCoffee[index];
-
-              return GestureDetector(
-                onTap: (){
-
-                },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(8, 8, 8, 12),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.asset(coffee.image, height: 160, width: double.infinity,fit: BoxFit.cover,),
-                        ),
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: Container(
-
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+            return GestureDetector(
+              onTap: () {},
+              child: Container(
+                padding: EdgeInsets.fromLTRB(8, 8, 8, 12),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
                 ),
-              );
-            }
-        )
-
+                child: Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        coffee.image,
+                        height: 160,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(),
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ],
     );
   }
 
-  Widget categorySelection(){
-    return SizedBox(
+  Widget categorySelection() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+      ),
       height: 25,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -217,7 +219,8 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                   color: selectedIndex == index
                       ? xprimaryColor
-                      : xsecondaryColor.withOpacity(0.1)),
+                      : xsecondaryColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(7)),
               padding: EdgeInsets.symmetric(horizontal: 10),
               alignment: Alignment.center,
               child: Text(
@@ -226,9 +229,9 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: selectedIndex == index
                         ? FontWeight.bold
                         : FontWeight.normal,
-                    fontSize: 16,
-                    color: selectedIndex == index ? Colors.white : Colors.black
-                ),
+                    fontSize: 15,
+                    color:
+                        selectedIndex == index ? Colors.white : Colors.black),
               ),
             ),
           );
