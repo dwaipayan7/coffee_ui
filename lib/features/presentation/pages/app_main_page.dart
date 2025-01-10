@@ -16,6 +16,7 @@ class _AppMainPageState extends State<AppMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: menu[indexMenu]['destination'] as Widget,
       backgroundColor: xbackgroundColor,
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
